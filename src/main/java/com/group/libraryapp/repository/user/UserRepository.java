@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-// 여기에 Repository를 넣어 스프링 빈으로 등록함
 @Repository
 public class UserRepository {
 

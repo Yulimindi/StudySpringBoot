@@ -3,8 +3,9 @@ package com.group.libraryapp.controller.user;
 import com.group.libraryapp.dto.user.request.UserCreateRequest;
 import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
+import com.group.libraryapp.service.fruit.FruitService;
 import com.group.libraryapp.service.user.UserService;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,9 +18,11 @@ public class UserController { // @RestController는 API의 진입 지점으로 �
     // 이 JdbcTemolate도 스프링빈으로 등록되어 있음
 
     private final UserService userService;
+    private final FruitService fruitService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, @Qualifier("main") FruitService fruitService) {
         this.userService = userService;
+        this.fruitService = fruitService;
     }
 
     @PostMapping("/user") // POST /user

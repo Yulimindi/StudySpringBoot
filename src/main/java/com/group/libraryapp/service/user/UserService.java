@@ -15,6 +15,15 @@ public class UserService { // 현재 유저가 있는지 확인하고 예외처�
 
     private final UserRepository userRepository;
 
+    /*
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+     */
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
