@@ -4,7 +4,8 @@ import com.group.libraryapp.dto.user.request.UserCreateRequest;
 import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
 import com.group.libraryapp.service.fruit.FruitService;
-import com.group.libraryapp.service.user.UserService;
+import com.group.libraryapp.service.user.UserServiceV1;
+import com.group.libraryapp.service.user.UserServiceV2;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +18,11 @@ public class UserController { // @RestController는 API의 진입 지점으로 �
     // UserController를 인스턴스화 하려면 JdbcTemplate이 필요함. (아래 생성자에서 사용하니까)
     // 이 JdbcTemolate도 스프링빈으로 등록되어 있음
 
-    private final UserService userService;
-    private final FruitService fruitService;
+    private final UserServiceV2 userService;
 
-    public UserController(UserService userService, @Qualifier("main") FruitService fruitService) {
+
+    public UserController(UserServiceV2 userService, @Qualifier("main") FruitService fruitService) {
         this.userService = userService;
-        this.fruitService = fruitService;
     }
 
     @PostMapping("/user") // POST /user

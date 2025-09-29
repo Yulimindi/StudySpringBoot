@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+// Jdbc를 사용하는 코드
+
 @Service
-public class UserService { // 현재 유저가 있는지 확인하고 예외처리 하는 코드
+public class UserServiceV1 { // 현재 유저가 있는지 확인하고 예외처리 하는 코드
 
     private final UserJdbcRepository userJdbcRepository;
 
@@ -22,7 +25,7 @@ public class UserService { // 현재 유저가 있는지 확인하고 예외처�
 
      */
 
-    public UserService(UserJdbcRepository userJdbcRepository) {
+    public UserServiceV1(UserJdbcRepository userJdbcRepository) {
         this.userJdbcRepository = userJdbcRepository;
     }
 
